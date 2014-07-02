@@ -14,13 +14,12 @@
 {
     CGFloat distance;
     CGFloat scale;
-    UICollectionViewFlowLayout *moveLayout;
 }
 
 @end
 
 @implementation ASCollectionView
-@synthesize layoutBig,layoutSmall,currentLayout,currentIndexPath;
+@synthesize collection, scrollView;
  
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -29,10 +28,6 @@
         self.backgroundColor = [UIColor clearColor];
         self.userInteractionEnabled = YES;
         self.multipleTouchEnabled = NO;
-        self.layoutBig = [ASFlowLayoutBig new];
-        self.layoutSmall = [ASFlowLayoutSmall new];
-        self.pagingEnabled = NO;
-        [self setCollectionViewLayout:self.layoutSmall animated:NO];
         scale = kASCollectionCellSmallScale;
     }
     
@@ -40,6 +35,8 @@
 
 }
 
+
+/*
 
 -(void)collectionZoomForScale:(CGFloat)nextScale
 {
@@ -129,5 +126,7 @@
    // [self collectionZoomForScale:distance];
     //[self collectionSnap];
 }
+ 
+ */
 
 @end

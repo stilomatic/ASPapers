@@ -26,10 +26,7 @@
 		60CE7387196033500067C50B /* FeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CE7386196033500067C50B /* FeedItem.m */; };
 		60CE738B19603F140067C50B /* ASFeedItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CE738A19603F140067C50B /* ASFeedItemCell.m */; };
 		60CE7392196043180067C50B /* UILabel+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CE7391196043180067C50B /* UILabel+Style.m */; };
-		60F8C01D19609D1200CDE945 /* ASContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F8C01C19609D1200CDE945 /* ASContainerView.m */; };
 		60F8C0201960A42000CDE945 /* ASCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F8C01F1960A42000CDE945 /* ASCollectionView.m */; };
-		60F8C0241960F10800CDE945 /* ASFlowLayoutSmall.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F8C0231960F10800CDE945 /* ASFlowLayoutSmall.m */; };
-		60F8C0271960F15800CDE945 /* ASFlowLayoutBig.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F8C0261960F15800CDE945 /* ASFlowLayoutBig.m */; };
 		A8AEF89A5E1E425B9145108B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3598CEA3FEE49EF8D86267D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -75,14 +72,8 @@
 		60CE738A19603F140067C50B /* ASFeedItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFeedItemCell.m; sourceTree = "<group>"; };
 		60CE7390196043180067C50B /* UILabel+Style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Style.h"; sourceTree = "<group>"; };
 		60CE7391196043180067C50B /* UILabel+Style.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Style.m"; sourceTree = "<group>"; };
-		60F8C01B19609D1200CDE945 /* ASContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASContainerView.h; sourceTree = "<group>"; };
-		60F8C01C19609D1200CDE945 /* ASContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASContainerView.m; sourceTree = "<group>"; };
 		60F8C01E1960A42000CDE945 /* ASCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCollectionView.h; sourceTree = "<group>"; };
 		60F8C01F1960A42000CDE945 /* ASCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCollectionView.m; sourceTree = "<group>"; };
-		60F8C0221960F10800CDE945 /* ASFlowLayoutSmall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFlowLayoutSmall.h; sourceTree = "<group>"; };
-		60F8C0231960F10800CDE945 /* ASFlowLayoutSmall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFlowLayoutSmall.m; sourceTree = "<group>"; };
-		60F8C0251960F15800CDE945 /* ASFlowLayoutBig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFlowLayoutBig.h; sourceTree = "<group>"; };
-		60F8C0261960F15800CDE945 /* ASFlowLayoutBig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFlowLayoutBig.m; sourceTree = "<group>"; };
 		C3598CEA3FEE49EF8D86267D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -212,12 +203,9 @@
 		60CE737D19602E130067C50B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				60F8C0211960F09F00CDE945 /* FlowLayout */,
 				60CE738F196042FE0067C50B /* UICategories */,
 				60CE738919603F140067C50B /* ASFeedItemCell.h */,
 				60CE738A19603F140067C50B /* ASFeedItemCell.m */,
-				60F8C01B19609D1200CDE945 /* ASContainerView.h */,
-				60F8C01C19609D1200CDE945 /* ASContainerView.m */,
 				60F8C01E1960A42000CDE945 /* ASCollectionView.h */,
 				60F8C01F1960A42000CDE945 /* ASCollectionView.m */,
 			);
@@ -240,17 +228,6 @@
 				60CE7391196043180067C50B /* UILabel+Style.m */,
 			);
 			name = UICategories;
-			sourceTree = "<group>";
-		};
-		60F8C0211960F09F00CDE945 /* FlowLayout */ = {
-			isa = PBXGroup;
-			children = (
-				60F8C0221960F10800CDE945 /* ASFlowLayoutSmall.h */,
-				60F8C0231960F10800CDE945 /* ASFlowLayoutSmall.m */,
-				60F8C0251960F15800CDE945 /* ASFlowLayoutBig.h */,
-				60F8C0261960F15800CDE945 /* ASFlowLayoutBig.m */,
-			);
-			name = FlowLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,13 +368,10 @@
 				60CE73841960329C0067C50B /* ASFeedSerializer.m in Sources */,
 				60CE738019602E300067C50B /* ASFeedManager.m in Sources */,
 				60CE738B19603F140067C50B /* ASFeedItemCell.m in Sources */,
-				60F8C0241960F10800CDE945 /* ASFlowLayoutSmall.m in Sources */,
 				604FF1E919601ACC0092A1B7 /* ASViewController.m in Sources */,
 				60CE7387196033500067C50B /* FeedItem.m in Sources */,
-				60F8C0271960F15800CDE945 /* ASFlowLayoutBig.m in Sources */,
 				60CE7392196043180067C50B /* UILabel+Style.m in Sources */,
 				604FF1DF19601ACC0092A1B7 /* main.m in Sources */,
-				60F8C01D19609D1200CDE945 /* ASContainerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
