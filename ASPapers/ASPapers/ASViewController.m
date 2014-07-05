@@ -58,7 +58,6 @@
     cell.backgroundColor = [UIColor whiteColor];
     cell.data = [feedData objectAtIndex:indexPath.row];
     cell.delegate = self;
-    cell.collection = self.collectionView;
     [cell setNeedsLayout];
     [cell layoutIfNeeded];
     

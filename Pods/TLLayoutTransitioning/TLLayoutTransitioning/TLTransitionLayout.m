@@ -31,33 +31,34 @@
 @end
 
 @implementation TLTransitionLayout
-//@synthesize toContentOffset;
+@synthesize toContentOffset,fromContentOffset,transitionTime,cancelledInPlace;
+@synthesize toContentOffsetInitialized,poses,previousProgress,supplementaryKinds;
 
 - (id)initWithCurrentLayout:(UICollectionViewLayout *)currentLayout nextLayout:(UICollectionViewLayout *)newLayout
 {
     if (self = [super initWithCurrentLayout:currentLayout nextLayout:newLayout]) {
-        _fromContentOffset = currentLayout.collectionView.contentOffset;
+        fromContentOffset = currentLayout.collectionView.contentOffset;
     }
     return self;
 }
 
-- (void)setTransitionProgress:(CGFloat)transitionProgress time:(CGFloat)time
+- (void)setTransitionProgress:(CGFloat)_transitionProgress time:(CGFloat)time
 {
 //    NSLog(@"setTransitionProgress=%f, time=%f", transitionProgress, time);
-    if (self.transitionProgress != transitionProgress) {
+    if (self.transitionProgress != _transitionProgress) {
         self.previousProgress = self.transitionProgress;
-        super.transitionProgress = transitionProgress;
+        super.transitionProgress = _transitionProgress;
         // enforce time range of 0 to 1
         // TODO since time is a user-supplied value, we might want to emit a
         // warning if time goes out-of-bounds
-        _transitionTime = MAX(0, MIN(1, time));
+        transitionTime = MAX(0, MIN(1, time));
         if (self.toContentOffsetInitialized) {
             CGFloat t = self.transitionProgress;
             CGFloat f = 1 - t;
             CGPoint offset = CGPointMake(f * self.fromContentOffset.x + t * self.toContentOffset.x, f * self.fromContentOffset.y + t * self.toContentOffset.y);
             self.collectionView.contentOffset = offset;
             if (self.progressChanged) {
-                self.progressChanged(transitionProgress);
+                self.progressChanged(self.transitionProgress);
             }
         }
     }
@@ -84,7 +85,7 @@
     CGFloat t = remaining == 0 ? self.transitionProgress : fabs(self.transitionProgress - self.previousProgress) / remaining;
     CGFloat f = 1 - t;
     
-    NSMutableDictionary *poses = [NSMutableDictionary dictionary];
+    NSMutableDictionary *_poses = [NSMutableDictionary dictionary];
     for (NSInteger section = 0; section < [self.collectionView numberOfSections]; section++) {
         // cells
         for (NSInteger item = 0; item < [self.collectionView numberOfItemsInSection:section]; item++) {
@@ -112,7 +113,7 @@
                 }
             }
             
-            [poses setObject:pose forKey:key];
+            [_poses setObject:pose forKey:key];
         }
         // supplementary views
         for (NSString *kind in self.supplementaryKinds) {
@@ -133,10 +134,10 @@
             
             // TODO need to incorporate the `updateLayoutAttributes` callback
             
-            [poses setObject:pose forKey:key];
+            [_poses setObject:pose forKey:key];
         }
     }
-    self.poses = poses;
+    self.poses = _poses;
 }
 
 - (void)interpolatePose:(UICollectionViewLayoutAttributes *)pose fromPose:(UICollectionViewLayoutAttributes *)fromPose toPose:(UICollectionViewLayoutAttributes *)toPose fromProgress:(CGFloat)f toProgress:(CGFloat)t
@@ -181,7 +182,7 @@
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
-    NSMutableArray *poses = [NSMutableArray array];
+    NSMutableArray *_poses = [NSMutableArray array];
     for (NSInteger section = 0; section < [self.collectionView numberOfSections]; section++) {
         // cells
         for (NSInteger item = 0; item < [self.collectionView numberOfItemsInSection:section]; item++) {
@@ -189,7 +190,7 @@
             UICollectionViewLayoutAttributes *pose = [self.poses objectForKey:indexPath];
             CGRect intersection = CGRectIntersection(rect, pose.frame);
             if (!CGRectIsEmpty(intersection)) {
-                [poses addObject:pose];
+                [_poses addObject:pose];
             }
         }
         // supplementary views
@@ -199,11 +200,11 @@
             UICollectionViewLayoutAttributes *pose = [self.poses objectForKey:key];
             CGRect intersection = CGRectIntersection(rect, pose.frame);
             if (!CGRectIsEmpty(intersection)) {
-                [poses addObject:pose];
+                [_poses addObject:pose];
             }
         }
     }
-    return poses;
+    return _poses;
 }
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -239,9 +240,9 @@
 
 - (void)setToContentOffset:(CGPoint)mtoContentOffset
 {
-    self.toContentOffsetInitialized = YES;
-    if (!CGPointEqualToPoint(self.toContentOffset, mtoContentOffset)) {
-        self.toContentOffset = mtoContentOffset;
+    toContentOffsetInitialized = YES;
+    if (!CGPointEqualToPoint(toContentOffset, mtoContentOffset)) {
+        toContentOffset = mtoContentOffset;
         [self invalidateLayout];
     }
 }
@@ -250,7 +251,7 @@
 
 - (void)cancelInPlace
 {
-    _cancelledInPlace = YES;
+    cancelledInPlace = YES;
 }
 
 #pragma mark - TLTransitionAnimatorLayout
@@ -264,10 +265,10 @@
 
 #pragma mark - Creating layouts
 
-- (id)initWithCurrentLayout:(UICollectionViewLayout *)currentLayout nextLayout:(UICollectionViewLayout *)newLayout supplementaryKinds:(NSArray *)supplementaryKinds
+- (id)initWithCurrentLayout:(UICollectionViewLayout *)currentLayout nextLayout:(UICollectionViewLayout *)newLayout supplementaryKinds:(NSArray *)_supplementaryKinds
 {
     if (self = [self initWithCurrentLayout:currentLayout nextLayout:newLayout]) {
-        _supplementaryKinds = supplementaryKinds;
+        self.supplementaryKinds = _supplementaryKinds;
     }
     return self;
 }

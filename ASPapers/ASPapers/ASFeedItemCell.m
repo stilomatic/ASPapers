@@ -11,7 +11,7 @@
 #import "ASCollectionView.h"
 
 @implementation ASFeedItemCell
-@synthesize data,randomColor,colorView,titleLabel,dateLabel,descriptionLabel,delegate,collection;
+@synthesize data,randomColor,colorView,titleLabel,dateLabel,descriptionLabel,delegate;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -66,13 +66,6 @@
         self.colorView.frame = self.bounds;
         [self  load];
     }
-    
-}
-
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    
-    [self.collection collectionTransition];
     
 }
 @end

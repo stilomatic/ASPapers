@@ -7,21 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <TLLayoutTransitioning/UICollectionView+TLTransitioning.h>
+#import <TLTransitionLayout.h>
 #import "ASFeedItemCell.h"
+#import "ASFlowLayoutBig.h"
+#import "ASFlowLayoutSmall.h"
 
 
-@interface ASCollectionView : UIView <UIScrollViewDelegate>
+@interface ASCollectionView : UICollectionView
 {
     CGPoint tStartLoc;
     CGPoint tEndLoc;
 }
 
-@property (nonatomic,strong) UIView *collection;
-@property (nonatomic,strong) UIScrollView *scrollView;
+@property (nonatomic,weak) NSIndexPath *currentIndexPath;
+@property (nonatomic,strong) ASFlowLayoutBig *layoutBig;
+@property (nonatomic,strong) ASFlowLayoutSmall *layoutSmall;
+@property (nonatomic,strong) TLTransitionLayout *transitionLayout;
 
 -(void)collectionZoomForScale:(CGFloat)nextScale;
 -(void)collectionTransition;
-
--(void)reloadTable;
 
 @end
