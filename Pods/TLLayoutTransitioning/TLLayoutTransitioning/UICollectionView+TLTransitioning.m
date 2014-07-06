@@ -205,9 +205,9 @@ static char kTLEasingFunctionKey;
 CGFloat transitionProgress(CGFloat initialValue, CGFloat currentValue,
                            CGFloat finalValue, AHEasingFunction easingFunction)
 {
-    CGFloat p = (currentValue - initialValue) / (finalValue - initialValue);
-    p = MIN(1.0, p);
-    p = MAX(0, p);
+    CGFloat p = (currentValue) / (finalValue);
+    p = MIN(1.1, p);
+    p = MAX(0.1, p);
     return easingFunction ? easingFunction(p) : p;
 }
 
