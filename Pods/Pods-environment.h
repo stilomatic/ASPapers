@@ -54,18 +54,6 @@
 #define COCOAPODS_VERSION_MINOR_AHEasing 2
 #define COCOAPODS_VERSION_PATCH_AHEasing 0
 
-// PromiseKit/base
-#define COCOAPODS_POD_AVAILABLE_PromiseKit_base
-#define COCOAPODS_VERSION_MAJOR_PromiseKit_base 0
-#define COCOAPODS_VERSION_MINOR_PromiseKit_base 9
-#define COCOAPODS_VERSION_PATCH_PromiseKit_base 10
-
-// TLLayoutTransitioning
-#define COCOAPODS_POD_AVAILABLE_TLLayoutTransitioning
-#define COCOAPODS_VERSION_MAJOR_TLLayoutTransitioning 1
-#define COCOAPODS_VERSION_MINOR_TLLayoutTransitioning 0
-#define COCOAPODS_VERSION_PATCH_TLLayoutTransitioning 0
-
 // pop
 #define COCOAPODS_POD_AVAILABLE_pop
 #define COCOAPODS_VERSION_MAJOR_pop 1
