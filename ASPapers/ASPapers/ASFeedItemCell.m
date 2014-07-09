@@ -69,4 +69,10 @@
     
 }
 
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
+    [self.collection collectionTransition];
+    
+}
 @end
