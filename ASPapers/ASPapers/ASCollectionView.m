@@ -15,12 +15,15 @@
     CGFloat distance;
     CGFloat scale;
     UICollectionViewFlowLayout *moveLayout;
+    
+    CGFloat tUpdate;
+    CGFloat nextValue;
 }
 
 @end
 
 @implementation ASCollectionView
-@synthesize layoutBig,layoutSmall,currentLayout,currentIndexPath;
+@synthesize layoutBig,layoutSmall,currentIndexPath,transitionLayout;
  
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -43,91 +46,87 @@
 
 -(void)collectionZoomForScale:(CGFloat)nextScale
 {
-    [self.collectionViewLayout invalidateLayout];
-    scale = nextScale;
-    CGFloat duration = 0.1;
-    AHEasingFunction _ease = LinearInterpolation;
-    if(!moveLayout){
-        moveLayout = [UICollectionViewFlowLayout new];
-    }
-    moveLayout.itemSize = CGSizeMake(self.bounds.size.width * scale, self.bounds.size.height * scale);
-    UIEdgeInsets insets = { .left = (self.bounds.size.width - moveLayout.itemSize.width)*0.5, .right = 0, .top = self.bounds.size.height - moveLayout.itemSize.height - 20, .bottom = 0 };
-    moveLayout.sectionInset = insets;
-    moveLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    [self transitionToCollectionViewLayout:moveLayout duration:duration easing:_ease completion:^(BOOL completed, BOOL finish) {
-        if (finish) {
-            //[self collectionSnap];
-        }
-    }];
 
+    NSLog(@"Drag&Scale %@ - %1.2f :::: %d",self.transitionLayout,nextScale, self.isExclusiveTouch);
+    if (!self.transitionLayout) {
+        UICollectionViewLayout *toLayout = self.layoutSmall == self.collectionViewLayout ? self.layoutBig : self.layoutSmall;
+        
+        self.transitionLayout = [self startInteractiveTransitionToCollectionViewLayout:toLayout completion:^(BOOL completed, BOOL finish) {
+            self.pagingEnabled = self.transitionLayout.nextLayout == self.layoutBig ? YES : NO;
+            //[self setCollectionViewLayout:self.transitionLayout.nextLayout];
+            self.transitionLayout = nil;
+            
+        }];
+        [NSTimer scheduledTimerWithTimeInterval:0.06 target:self selector:@selector(updateInteractive:) userInfo:nil repeats:YES];
+    }else if(self.transitionLayout) {
+        
+        nextValue = nextScale;
+    }
 }
 
--(void)collectionSnap
+-(void)updateInteractive:(NSTimer*)timer
 {
-    if (scale < 0.7) {
-        self.pagingEnabled = NO;
-        self.currentLayout = self.layoutSmall;
-        scale = kASCollectionCellSmallScale;
-    }else{
-        self.pagingEnabled = YES;
-        self.currentLayout = self.layoutBig;
-        scale = 1.0;
+    
+    tUpdate -= (tUpdate-nextValue)/6;
+    self.transitionLayout.transitionProgress = tUpdate;
+    [self.transitionLayout invalidateLayout];
+    
+    if (round(tUpdate) == 1.0 || floor(tUpdate) == 0.0) {
+        [timer invalidate];
+        [self finishInteractiveTransition];
     }
-    [self.collectionViewLayout invalidateLayout];
-    [self setCollectionViewLayout:self.currentLayout animated:YES];
-}
 
--(void)collectionTransition
-{
-    if (self.currentLayout == self.layoutBig) {
-        self.pagingEnabled = NO;
-        self.currentLayout = self.layoutSmall;
-        scale = kASCollectionCellSmallScale;
-    }else{
-        self.pagingEnabled = YES;
-        self.currentLayout = self.layoutBig;
-        scale = 1.0;
-    }
-    [self.collectionViewLayout invalidateLayout];
-    [self setCollectionViewLayout:self.currentLayout animated:YES];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
     tStartLoc = [touch locationInView:(UIView*)self];
-    distance = scale;
     NSLog(@"START %f",tStartLoc.y);
+    scale = self.collectionViewLayout == self.layoutBig ? 1.0 : kASCollectionCellSmallScale;
+    tUpdate = nextValue = 0.0;
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
     tEndLoc = [touch locationInView:(UIView*)self];
-    NSLog(@"** MOVED %1.2f > %1.2f",tEndLoc.y,tStartLoc.y);
-    
-    if (tEndLoc.y > tStartLoc.y) {
-        distance -= 0.1;
-    }else
-    {
-        distance += 0.1;
-    }
-    
+    NSLog(@"** MOVED end:%1.2f > start:%1.2f",tEndLoc.y,tStartLoc.y);
+    CGFloat xx = tEndLoc.x-tStartLoc.x;
+    CGFloat yy = tEndLoc.y-tStartLoc.y;
+    distance = (sqrtf(xx*xx+yy*yy)/self.bounds.size.height)*1.2;
     NSLog(@"MOVE distance:%f and scale:%1.2f",distance,scale);
-    if(distance > 0.2 && distance < 1.05)
+    
     [self collectionZoomForScale:distance];
 }
 
+
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    //[self collectionSnap];
+    NSLog(@"END %@ %f",self.transitionLayout,distance);
+
+    if(self.transitionLayout){
+        if (tUpdate > 0.5) {
+            nextValue = 1.0;
+        }else{
+            nextValue = 0.0;
+        }
+    }else{
+        UICollectionViewFlowLayout *currentLayout = scale == 1.0 ? self.layoutSmall : self.layoutBig;
+        self.pagingEnabled = currentLayout == self.layoutBig ? YES : NO;
+        [self setCollectionViewLayout:currentLayout animated:YES completion:^(BOOL finished) {
+            
+        }];
+    }
 }
 
 -(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"TOUCH CANCELED_-----_-__-__---___-_");
-   // [self collectionZoomForScale:distance];
-    //[self collectionSnap];
+    if (tUpdate > 0.5) {
+        nextValue = 1.0;
+    }else{
+        nextValue = 0.0;
+    }
 }
 
 @end

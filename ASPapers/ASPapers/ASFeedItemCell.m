@@ -11,19 +11,19 @@
 #import "ASCollectionView.h"
 
 @implementation ASFeedItemCell
-@synthesize data,randomColor,colorView,titleLabel,dateLabel,descriptionLabel,delegate,collection;
+@synthesize data,randomColor,colorView,titleLabel,dateLabel,descriptionLabel,delegate;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
-        self.layer.cornerRadius = 14.0;
-        self.layer.masksToBounds = YES;
+        self.layer.cornerRadius = 8.0;
+        self.layer.masksToBounds = NO;
         self.layer.shadowColor = [UIColor blackColor].CGColor;
-        self.layer.shadowOffset = CGSizeMake(4.0, 4.0);
-        self.layer.shadowOpacity = 0.6,
-        self.layer.shadowRadius = 10.0;
+        self.layer.shadowOffset = CGSizeZero;
+        self.layer.shadowOpacity = 0.8,
+        self.layer.shadowRadius = 4.0;
         self.randomColor = UIRandomColor;
     }
     return self;
@@ -66,13 +66,6 @@
         self.colorView.frame = self.bounds;
         [self  load];
     }
-    
-}
-
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    
-    [self.collection collectionTransition];
     
 }
 @end

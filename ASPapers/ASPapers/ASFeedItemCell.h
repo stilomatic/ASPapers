@@ -24,7 +24,6 @@
     UIActivityIndicatorView *preloader;
 }
 
-@property (nonatomic) ASCollectionView *collection;
 @property (nonatomic,strong) IBOutlet UIView *colorView;
 @property (nonatomic,strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic,strong) IBOutlet UILabel *dateLabel;

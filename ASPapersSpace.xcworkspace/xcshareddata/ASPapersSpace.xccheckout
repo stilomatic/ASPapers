@@ -5,19 +5,31 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
+<<<<<<< HEAD
 	<string>7B181776-3AE2-4D29-8EE9-E2562F737637</string>
+=======
+	<string>DEC85428-8E83-419C-BBD1-EFF10D18678D</string>
+>>>>>>> working
 	<key>IDESourceControlProjectName</key>
 	<string>ASPapersSpace</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+<<<<<<< HEAD
 		<key>67FFEB08-9843-4A53-9D60-5440669A021F</key>
+=======
+		<key>C420AAF7-B07E-49B9-BEEA-BC463964C404</key>
+>>>>>>> working
 		<string>https://github.com/stilomatic/ASPapers.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ASPapersSpace.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+<<<<<<< HEAD
 		<key>67FFEB08-9843-4A53-9D60-5440669A021F</key>
+=======
+		<key>C420AAF7-B07E-49B9-BEEA-BC463964C404</key>
+>>>>>>> working
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +37,22 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
+<<<<<<< HEAD
 	<string>67FFEB08-9843-4A53-9D60-5440669A021F</string>
+=======
+	<string>C420AAF7-B07E-49B9-BEEA-BC463964C404</string>
+>>>>>>> working
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
+<<<<<<< HEAD
 			<string>67FFEB08-9843-4A53-9D60-5440669A021F</string>
+=======
+			<string>C420AAF7-B07E-49B9-BEEA-BC463964C404</string>
+>>>>>>> working
 			<key>IDESourceControlWCCName</key>
 			<string>ASPapers</string>
 		</dict>
