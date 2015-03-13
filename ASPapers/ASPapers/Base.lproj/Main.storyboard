@@ -96,10 +96,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="FG5-2y-sBR" secondAttribute="trailing" id="2hJ-Ec-ooq"/>
-                            <constraint firstItem="FG5-2y-sBR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Ab7-xk-n76"/>
-                            <constraint firstItem="FG5-2y-sBR" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="D5F-4O-PmN"/>
-                            <constraint firstItem="Pt6-DZ-qPN" firstAttribute="top" secondItem="FG5-2y-sBR" secondAttribute="bottom" id="dbg-FB-jds"/>
+                            <constraint firstItem="FG5-2y-sBR" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="KXj-cM-Pm9"/>
+                            <constraint firstItem="Pt6-DZ-qPN" firstAttribute="top" secondItem="FG5-2y-sBR" secondAttribute="bottom" id="NkT-EL-PqF"/>
+                            <constraint firstAttribute="trailing" secondItem="FG5-2y-sBR" secondAttribute="trailing" id="QQL-3Z-TOQ"/>
+                            <constraint firstItem="FG5-2y-sBR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="xRy-IQ-Bx4"/>
                         </constraints>
                     </view>
                     <connections>

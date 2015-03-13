@@ -26,6 +26,5 @@
 @property (nonatomic,strong) TLTransitionLayout *transitionLayout;
 
 -(void)collectionZoomForScale:(CGFloat)nextScale;
--(void)collectionTransition;
 
 @end

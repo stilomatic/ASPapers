@@ -32,8 +32,7 @@
         self.layoutBig = [ASFlowLayoutBig new];
         self.layoutSmall = [ASFlowLayoutSmall new];
         self.pagingEnabled = NO;
-        [self setCollectionViewLayout:self.layoutSmall animated:NO];
-        scale = kASCollectionCellSmallScale;
+        [self setCollectionViewLayout:self.layoutBig animated:NO];
     }
     
     return self;
@@ -74,7 +73,6 @@
             [self setCollectionViewLayout:self.transitionLayout.nextLayout animated:NO];
             self.pagingEnabled = self.transitionLayout.nextLayout == self.layoutBig ? YES : NO;
             self.transitionLayout = nil;
-            
         }];
         
         NSArray *visiblePoses = [self.collectionViewLayout layoutAttributesForElementsInRect:self.bounds];
@@ -89,9 +87,9 @@
     }else if(self.transitionLayout) {
         CGFloat finalScale = self.transitionLayout.currentLayout == self.layoutBig ? kASCollectionCellSmallScale : 1.0;
         
-        CGFloat value = self.transitionLayout.currentLayout == self.layoutBig ? scale+nextScale : scale+nextScale;
+       // CGFloat value = self.transitionLayout.currentLayout == self.layoutBig ? scale+nextScale : scale+nextScale;
 
-        self.transitionLayout.transitionProgress = transitionProgress(scale, value, finalScale, BounceEaseOut);
+        self.transitionLayout.transitionProgress = BounceEaseOut(nextScale);//transitionProgress(scale, scale+nextScale, finalScale, BounceEaseOut);
     }
 }
 
@@ -112,9 +110,12 @@
     CGFloat yy = tEndLoc.y-tStartLoc.y;
     distance = (sqrtf(xx*xx+yy*yy)/self.bounds.size.height)*0.5;
     NSLog(@"MOVE distance:%f and scale:%1.2f",distance,scale);
-    if (tEndLoc.y > tStartLoc.y) {
+    /*if (tEndLoc.y > tStartLoc.y) {
         distance *= -1;
-    }
+    }*/
+    
+    distance = MIN(1.1, distance);
+    distance = MAX(0.3, distance);
     
     [self collectionZoomForScale:distance];
 }
