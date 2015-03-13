@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "604FF1CE19601ACC0092A1B7"
-               BuildableName = "ASPapers.app"
-               BlueprintName = "ASPapers"
-               ReferencedContainer = "container:ASPapers.xcodeproj">
+               BlueprintIdentifier = "AD0A5CD2267B4B7FA86CB69F"
+               BuildableName = "libPods-AHEasing.a"
+               BlueprintName = "Pods-AHEasing"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,26 +28,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "604FF1EF19601ACC0092A1B7"
-               BuildableName = "ASPapersTests.xctest"
-               BlueprintName = "ASPapersTests"
-               ReferencedContainer = "container:ASPapers.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "604FF1CE19601ACC0092A1B7"
-            BuildableName = "ASPapers.app"
-            BlueprintName = "ASPapers"
-            ReferencedContainer = "container:ASPapers.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -58,15 +39,6 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "604FF1CE19601ACC0092A1B7"
-            BuildableName = "ASPapers.app"
-            BlueprintName = "ASPapers"
-            ReferencedContainer = "container:ASPapers.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -76,15 +48,6 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "604FF1CE19601ACC0092A1B7"
-            BuildableName = "ASPapers.app"
-            BlueprintName = "ASPapers"
-            ReferencedContainer = "container:ASPapers.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
