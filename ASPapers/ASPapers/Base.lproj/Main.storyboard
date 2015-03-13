@@ -33,19 +33,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="316" height="564"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-<<<<<<< HEAD
-                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2J2-hL-bAL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="280" id="las-cY-McR"/>
-                                                    </constraints>
-                                                </view>
-                                                <label opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="279" translatesAutoresizingMaskIntoConstraints="NO" id="oLN-J1-oaR">
-                                                    <rect key="frame" x="20" y="286" width="279" height="207"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-=======
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2J2-hL-bAL">
                                                     <rect key="frame" x="0.0" y="0.0" width="316" height="280"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -60,7 +47,6 @@
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="276" translatesAutoresizingMaskIntoConstraints="NO" id="oLN-J1-oaR">
                                                     <rect key="frame" x="20" y="286" width="276" height="210"/>
->>>>>>> working
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -78,18 +64,6 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-<<<<<<< HEAD
-                                            <constraint firstAttribute="trailing" secondItem="CRS-8L-Sh0" secondAttribute="trailing" constant="19" id="2c6-fR-Jll"/>
-                                            <constraint firstAttribute="bottom" secondItem="oLN-J1-oaR" secondAttribute="bottom" constant="71" id="9JP-bd-b12"/>
-                                            <constraint firstItem="2J2-hL-bAL" firstAttribute="top" secondItem="VbR-kF-WCF" secondAttribute="top" id="AGv-DH-gdU"/>
-                                            <constraint firstItem="oLN-J1-oaR" firstAttribute="leading" secondItem="VbR-kF-WCF" secondAttribute="leading" constant="20" id="GWS-pM-Ugq"/>
-                                            <constraint firstItem="vd9-1G-Hj9" firstAttribute="leading" secondItem="VbR-kF-WCF" secondAttribute="leading" constant="18" id="K9v-4Q-HvW"/>
-                                            <constraint firstItem="vd9-1G-Hj9" firstAttribute="top" secondItem="VbR-kF-WCF" secondAttribute="top" constant="18" id="TwX-sJ-yho"/>
-                                            <constraint firstAttribute="trailing" secondItem="oLN-J1-oaR" secondAttribute="trailing" constant="17" id="ZVF-uC-yhV"/>
-                                            <constraint firstItem="CRS-8L-Sh0" firstAttribute="leading" secondItem="VbR-kF-WCF" secondAttribute="leading" constant="18" id="ZXG-s2-e8w"/>
-                                            <constraint firstItem="CRS-8L-Sh0" firstAttribute="top" secondItem="vd9-1G-Hj9" secondAttribute="bottom" constant="25" id="bxM-Qt-ND2"/>
-                                            <constraint firstAttribute="trailing" secondItem="vd9-1G-Hj9" secondAttribute="trailing" constant="19" id="jIe-Gg-liS"/>
-=======
                                             <constraint firstItem="oLN-J1-oaR" firstAttribute="top" secondItem="vd9-1G-Hj9" secondAttribute="bottom" constant="74" id="8bh-1h-oc9"/>
                                             <constraint firstAttribute="trailing" secondItem="2J2-hL-bAL" secondAttribute="trailing" id="8v7-JF-tWi"/>
                                             <constraint firstAttribute="bottom" secondItem="oLN-J1-oaR" secondAttribute="bottom" constant="68" id="Adu-Zt-TqT"/>
@@ -104,7 +78,6 @@
                                             <constraint firstAttribute="trailing" secondItem="oLN-J1-oaR" secondAttribute="trailing" constant="20" id="t5s-hA-OAa"/>
                                             <constraint firstItem="CRS-8L-Sh0" firstAttribute="leading" secondItem="VbR-kF-WCF" secondAttribute="leading" constant="18" id="tSc-OE-nMl"/>
                                             <constraint firstAttribute="trailing" secondItem="vd9-1G-Hj9" secondAttribute="trailing" constant="19" id="zgk-Bu-mmd"/>
->>>>>>> working
                                         </constraints>
                                         <connections>
                                             <outlet property="colorView" destination="2J2-hL-bAL" id="4um-Xi-7pl"/>
@@ -122,16 +95,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-<<<<<<< HEAD
-                            <constraint firstItem="h8U-Vu-Qq6" firstAttribute="top" secondItem="FG5-2y-sBR" secondAttribute="bottom" id="BaD-K2-wud"/>
-                            <constraint firstItem="FG5-2y-sBR" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Px3-SU-g8p"/>
-                            <constraint firstItem="FG5-2y-sBR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="ml8-Vj-YBI"/>
-=======
                             <constraint firstItem="FG5-2y-sBR" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="BNz-FL-w1O"/>
                             <constraint firstItem="FG5-2y-sBR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Hhg-fh-MbE"/>
                             <constraint firstAttribute="trailing" secondItem="FG5-2y-sBR" secondAttribute="trailing" id="hHb-0X-9CR"/>
                             <constraint firstItem="Pt6-DZ-qPN" firstAttribute="top" secondItem="FG5-2y-sBR" secondAttribute="bottom" id="vhe-Xt-gGd"/>
->>>>>>> working
                         </constraints>
                     </view>
                     <connections>
